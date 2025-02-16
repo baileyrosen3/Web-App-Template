@@ -9,7 +9,6 @@ RUN npm install -g pnpm
 
 # Copy package files
 COPY package.json ./
-COPY .env.example ./.env
 
 # Install dependencies
 RUN pnpm install --frozen-lockfile
