@@ -1,23 +1,24 @@
-# Use official Node.js LTS image
+# Use Node.js 18 alpine as base image
 FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-# Copy package files first for better caching
-COPY package.json ./
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
 
-# Install dependencies using npm
-RUN npm install
+# Install dependencies
+RUN npm ci
 
-# Copy application code
+# Bundle app source
 COPY . .
 
-# Generate Prisma client if needed
+# Generate Prisma Client
 RUN npx prisma generate
 
-# Expose the port the app runs on
+# Expose port
 EXPOSE 3000
 
-# Command to run the application
-CMD ["npm", "start"] 
+# Start the server
+CMD [ "npm", "start" ] 
