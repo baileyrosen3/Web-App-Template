@@ -1,26 +1,27 @@
 # Use official Node.js LTS image
-FROM node:18-alpine AS base
-
-# Install pnpm
-RUN npm install -g pnpm
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files
-COPY package.json pnpm-lock.yaml ./
+COPY package.json ./
+COPY .env.example ./.env
 
 # Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy project files
+# Copy application code
 COPY . .
 
 # Generate Prisma client
 RUN pnpm prisma generate
 
 # Expose the port the app runs on
-EXPOSE 3001
+EXPOSE 3000
 
 # Command to run the application
-CMD ["pnpm", "dev"] 
+CMD ["pnpm", "start"] 

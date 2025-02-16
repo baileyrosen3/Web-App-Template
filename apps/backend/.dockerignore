@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist
+build
+
+# Development
+.git
+.vscode
+.idea
+*.log
+.DS_Store
+
+# Testing
+coverage
+.nyc_output
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Documentation
+*.md
+!README.md 
