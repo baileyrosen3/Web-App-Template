@@ -1,1 +1,71 @@
- 
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Production
+.vercel/
+.netlify/
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Prisma
+*.db
+*.db-journal
+prisma/migrations/
+prisma/client/
+
+# Docker
+docker-compose.override.yml
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Turborepo
+.turbo/
+
+# Misc
+tmp/
+*.log
+*.pid
+*.seed
+*.pid.lock
+lib-cov 
