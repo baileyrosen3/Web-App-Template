@@ -1,24 +1,24 @@
 # Use Node.js 18 alpine as base image
 FROM node:18-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+# Copy package.json only
+COPY package.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install --production
 
-# Bundle app source
+# Copy source code
 COPY . .
 
-# Generate Prisma Client
-RUN npx prisma generate
+# Generate Prisma client
+RUN npm install -g prisma && \
+    npx prisma generate
 
 # Expose port
 EXPOSE 3000
 
 # Start the server
-CMD [ "npm", "start" ] 
+CMD ["node", "src/index.js"] 
