@@ -1,24 +1,24 @@
-# Product Context - Web App Template
+# Product Context
 
-## Why This Project Exists
+## Project Purpose
 
-- To serve as a modern, production-ready web application template
-- To demonstrate best practices in full-stack development
-- To provide an automated deployment pipeline
+This is a modern web application built with Next.js, designed to serve as a template for building scalable and maintainable web applications.
 
-## Problems It Solves
+## Problems Solved
 
-- Reduces setup time for new web projects
-- Eliminates configuration overhead
-- Ensures consistent deployment practices
-- Provides a scalable architecture from the start
+- Provides a standardized, production-ready Next.js setup
+- Implements modern best practices out of the box
+- Includes TypeScript for type safety
+- Integrates Tailwind CSS for styling
+- Includes ESLint for code quality
+- Uses the new App Router for better performance and features
 
 ## How It Should Work
 
-- Frontend deployed on Vercel
-- Backend deployed on Railway
-- Automatic deployments triggered by pushes to main branch
-- Modern development experience with hot reloading
-- Secure API communication between frontend and backend
-- Environment-based configuration
-- Comprehensive testing setup
+The application should provide a solid foundation for building modern web applications with:
+
+- Type-safe development using TypeScript
+- Efficient styling using Tailwind CSS
+- Modern routing using Next.js App Router
+- Code quality maintenance using ESLint
+- Fast development experience with hot reloading

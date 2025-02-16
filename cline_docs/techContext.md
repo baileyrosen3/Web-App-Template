@@ -2,52 +2,26 @@
 
 ## Technologies Used
 
-### Frontend
-
-- Next.js 14 (React framework)
+- Next.js (Latest version)
 - TypeScript
 - Tailwind CSS
-- SWR for data fetching
-- Jest & React Testing Library
-- ESLint & Prettier
-
-### Backend
-
+- ESLint
+- React
 - Node.js
-- Express.js
-- TypeScript
-- PostgreSQL
-- Prisma (ORM)
-- Jest for testing
-- ESLint & Prettier
-
-### DevOps & Infrastructure
-
-- Git for version control
-- GitHub for repository hosting
-- Vercel for frontend deployment
-- Railway for backend deployment
-- GitHub Actions for CI/CD
-- Docker for containerization
 
 ## Development Setup
 
-1. Node.js >= 18.x required
-2. pnpm as package manager
-3. Git for version control
-4. Docker for local development
-5. IDE: VS Code recommended with extensions:
-   - ESLint
-   - Prettier
-   - Tailwind CSS IntelliSense
-   - Prisma
+1. Node.js environment
+2. npm package manager
+3. Next.js with TypeScript configuration
+4. Tailwind CSS setup
+5. ESLint for code quality
+6. VS Code recommended (with ESLint and Tailwind CSS IntelliSense extensions)
 
 ## Technical Constraints
 
+- Node.js version requirements
 - TypeScript strict mode enabled
-- Automated testing required for all features
-- Minimum 80% test coverage
-- All code must pass linting
-- Conventional commits required
-- Environment variables must be properly managed
-- API documentation required
+- ESLint rules configuration
+- Next.js App Router architecture
+- Tailwind CSS utility-first approach

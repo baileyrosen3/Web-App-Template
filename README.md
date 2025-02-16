@@ -56,18 +56,61 @@ A modern full-stack web application template with automated deployments using Ve
 
 ## Project Structure
 
+- `apps/`: Contains application-specific code
+  - `backend/`: Express.js backend server with PostgreSQL
+  - (Frontend directory)
+
+## Backend Setup
+
+The backend is built with Express.js and uses Sequelize ORM for PostgreSQL database interactions.
+
+### Key Features
+
+- Railway-ready deployment configuration
+- PostgreSQL database integration
+- Environment-based configuration
+- Basic User model example
+
+### Getting Started
+
+1. Install dependencies:
+
+```bash
+pnpm install
 ```
-web-app-template/
-├── apps/
-│   ├── frontend/        # Next.js frontend
-│   └── backend/         # Express.js backend
-├── packages/
-│   ├── eslint-config/   # Shared ESLint configuration
-│   ├── typescript-config/ # Shared TypeScript configuration
-│   └── ui/              # Shared UI components
-├── docker/              # Docker configuration
-└── docs/               # Documentation
+
+2. Navigate to backend directory:
+
+```bash
+cd apps/backend
 ```
+
+3. Copy `.env.example` to `.env` and configure your settings
+
+4. Run in development:
+
+```bash
+pnpm dev
+```
+
+## Deployment
+
+### Railway Deployment
+
+- Create a new Railway project
+- Add PostgreSQL service
+- Set environment variables from `.env.example`
+- Deploy backend and frontend services
+
+## Technologies
+
+### Backend
+
+- Express.js
+- Sequelize ORM
+- PostgreSQL
+- Cors
+- Dotenv
 
 ## Documentation
 
@@ -79,7 +122,7 @@ web-app-template/
 
 ## Contributing
 
-Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting a Pull Request.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 

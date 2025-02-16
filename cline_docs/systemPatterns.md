@@ -1,57 +1,37 @@
 # System Patterns
 
-## Architecture Overview
+## Architecture
 
-- Monorepo structure with separate frontend and backend
-- Clean architecture principles
-- Domain-driven design
-- RESTful API design
-- Microservices-ready structure
+- Next.js App Router architecture
+- Server and Client Components
+- API Routes for backend functionality
+- Static and Dynamic rendering options
+- Middleware support
 
 ## Key Technical Decisions
 
-1. Monorepo Structure
-   - Easier dependency management
-   - Shared types and utilities
-   - Consistent tooling
-2. TypeScript First
+1. Using TypeScript for type safety
+2. Implementing Tailwind CSS for styling
+3. ESLint for code quality
+4. App Router for modern routing
+5. src directory structure for better organization
 
-   - Type safety across full stack
-   - Better developer experience
-   - Reduced runtime errors
+## Directory Structure
 
-3. Next.js for Frontend
+```
+src/
+├── app/             # App Router pages and layouts
+├── components/      # Reusable React components
+├── lib/            # Utility functions and shared logic
+├── styles/         # Global styles and Tailwind config
+└── types/          # TypeScript type definitions
+```
 
-   - Server-side rendering capabilities
-   - API routes support
-   - Excellent developer experience
-   - Built-in routing and optimization
+## Best Practices
 
-4. Express.js for Backend
-
-   - Proven and stable
-   - Great middleware ecosystem
-   - Easy to scale
-   - TypeScript support
-
-5. Prisma as ORM
-
-   - Type-safe database queries
-   - Excellent migration system
-   - Auto-generated types
-   - Great developer experience
-
-6. Containerized Development
-   - Consistent development environment
-   - Easy local setup
-   - Production-like environment
-
-## Architectural Patterns
-
-1. Repository Pattern for Data Access
-2. Service Layer Pattern
-3. Dependency Injection
-4. Event-Driven Architecture Ready
-5. CQRS Ready
-6. Feature-Based Structure
-7. Atomic Design for Components
+- Use TypeScript for all components and functions
+- Implement proper error boundaries
+- Follow React Server Component patterns
+- Use proper loading and error states
+- Implement responsive design with Tailwind
+- Follow ESLint rules for consistent code style

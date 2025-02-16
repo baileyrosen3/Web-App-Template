@@ -1,72 +1,36 @@
-# Dependencies
-node_modules/
-.pnpm-store/
-.pnpm/
+# Backend specific
+apps/backend/node_modules/
+apps/backend/.env
+apps/backend/dist/
+apps/backend/logs/
 
-# Build outputs
-dist/
-build/
-.next/
-out/
+# Dependency directories
+node_modules/
+pnpm-lock.yaml
 
 # Environment files
 .env
 .env.local
-.env.*.local
-.env.development
-.env.test
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+out/
 
 # IDE and Editor files
 .idea/
 .vscode/
 *.swp
 *.swo
-.DS_Store
-*.pem
-
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Testing
-coverage/
-.nyc_output/
-
-# Production
-.vercel/
-.netlify/
-
-# Typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# Cache
-.cache/
-.parcel-cache/
-
-# Prisma
-*.db
-*.db-journal
-prisma/migrations/
-prisma/client/
-
-# Docker
-docker-compose.override.yml
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# Turborepo
-.turbo/
-
-# Misc
-tmp/
-*.log
-*.pid
-*.seed
-*.pid.lock
-lib-cov 
+.DS_Store 

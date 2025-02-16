@@ -1,0 +1,19 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "./Dockerfile"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[env]
+PORT = "3000"
+NODE_ENV = "production"
+DB_HOST = "${{ POSTGRES_PRIVATE_HOST }}"
+DB_PORT = "${{ POSTGRES_PORT }}"
+DB_NAME = "${{ POSTGRES_DATABASE }}"
+DB_USERNAME = "${{ POSTGRES_USER }}"
+DB_PASSWORD = "${{ POSTGRES_PASSWORD }}"
+JWT_SECRET = "${{ RAILWAY_RANDOM_SECRET }}" 

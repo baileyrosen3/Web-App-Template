@@ -1,6 +1,7 @@
 {
   "name": "web-app-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Full-stack web application template",
   "private": true,
   "scripts": {
     "dev": "pnpm --parallel -r dev",
@@ -9,7 +10,9 @@
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
     "clean": "pnpm -r clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "backend:dev": "cd apps/backend && pnpm dev",
+    "backend:start": "cd apps/backend && pnpm start"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
@@ -18,5 +21,9 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@8.15.1"
+  "packageManager": "pnpm@8.15.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
