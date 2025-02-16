@@ -11,6 +11,11 @@ services:
       POSTGRES_DB: webapp
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d webapp"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   frontend:
     build:
@@ -25,6 +30,13 @@ services:
       - NEXT_PUBLIC_API_URL=http://backend:3001
     depends_on:
       - backend
+    develop:
+      watch:
+        - action: sync
+          path: ./apps/frontend
+          target: /app
+        - action: rebuild
+          path: package.json
 
   backend:
     build:
@@ -40,7 +52,23 @@ services:
       - PORT=3001
       - NODE_ENV=development
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./apps/backend
+          target: /app
+        - action: rebuild
+          path: package.json
 
 volumes:
   postgres_data:
+
+# Optional: Enable Docker Compose watch mode for development
+x-develop:
+  name: web-app-dev
+  watch:
+    - action: sync
+      path: ./apps
+      target: /app
