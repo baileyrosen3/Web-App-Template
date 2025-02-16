@@ -1,0 +1,46 @@
+# Backend specific
+apps/backend/node_modules/
+apps/backend/dist/
+apps/backend/logs/
+
+# Frontend specific
+apps/frontend/node_modules/
+apps/frontend/.next/
+apps/frontend/dist/
+apps/frontend/build/
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.env
+.env.local
+.env.*.local
+apps/backend/.env*
+!apps/backend/.env.example
+apps/frontend/.env*
+!apps/frontend/.env.example
+
+# Dependency directories
+node_modules/
+pnpm-lock.yaml
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+out/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store 
