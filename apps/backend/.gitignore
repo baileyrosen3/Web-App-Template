@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Prisma
+*.db
+*.db-journal
+.prisma/
+prisma/.env*
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing and coverage
+coverage/
+.nyc_output/
+lib-cov/
+
+# Temporary folders
+tmp/
+temp/
+uploads/
+
+# Misc
+.turbo
+.cache
+.vercel

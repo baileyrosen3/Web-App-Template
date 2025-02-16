@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: webapp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend:/app
+      - /app/node_modules
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/backend:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/webapp?schema=public
+      - PORT=3001
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
