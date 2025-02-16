@@ -8,16 +8,21 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 # Copy workspace files
-COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
+COPY pnpm-workspace.yaml ./
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 
-# Copy backend files
-COPY apps/backend ./apps/backend
+# Copy the entire project (this includes all apps and packages)
+COPY . .
 
 # Install dependencies
 RUN pnpm install --frozen-lockfile
 
 # Set working directory to backend
 WORKDIR /app/apps/backend
+
+# Generate Prisma client
+RUN pnpm prisma generate
 
 # Expose the port the app runs on
 EXPOSE 3000
