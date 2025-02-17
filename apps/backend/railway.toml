@@ -1,8 +1,9 @@
 [build]
 builder = "nixpacks"
+buildCommand = "npm install && prisma generate"
 
 [deploy]
-startCommand = "node minimal.js"
+startCommand = "node server.js"
 healthcheckPath = "/"
 healthcheckTimeout = 60
 restartPolicyType = "ON_FAILURE"
@@ -12,8 +13,8 @@ healthcheckInterval = 15
 [env]
 PORT = "8080"
 NODE_ENV = "production"
-FRONTEND_URL = "https://web-app-template-kappa.vercel.app"
-CORS_ORIGIN = "https://web-app-template-kappa.vercel.app"
+FRONTEND_URL = "${{ FRONTEND_URL }}"
+CORS_ORIGIN = "${{ CORS_ORIGIN }}"
 POSTGRES_HOST = "${{ POSTGRES_PRIVATE_HOST }}"
 POSTGRES_PORT = "${{ POSTGRES_PORT }}"
 POSTGRES_DB = "${{ POSTGRES_DATABASE }}"

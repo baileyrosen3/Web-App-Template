@@ -43,20 +43,43 @@ export async function login(
 export async function register(
   credentials: RegisterCredentials
 ): Promise<AuthResponse> {
-  const response = await fetch(`${API_URL}/api/auth/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  });
+  try {
+    const response = await fetch(`${API_URL}/api/auth/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || "Failed to register");
+    const data = await response.json();
+
+    if (!response.ok) {
+      // Enhanced error handling
+      const errorMessage = data.error || 
+        (Array.isArray(data.errors) ? data.errors.map((e: any) => e.msg).join(', ') : 'Registration failed');
+      
+      // Include more details in development
+      const errorDetails = process.env.NODE_ENV === 'development' ? data.details : undefined;
+      
+      throw new Error(JSON.stringify({
+        error: errorMessage,
+        details: errorDetails,
+        status: response.status
+      }));
+    }
+
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw error;
+    }
+    // Handle fetch errors (network issues, etc.)
+    throw new Error(JSON.stringify({
+      error: 'Network error occurred',
+      details: 'Could not connect to the server'
+    }));
   }
-
-  return response.json();
 }
 
 export async function requestPasswordReset(email: string): Promise<void> {
