@@ -1,5 +1,5 @@
 {
-  "name": "hive-backend",
+  "name": "web-app-template-backend",
   "version": "1.0.0",
   "description": "Web App Template Backend",
   "main": "server.js",

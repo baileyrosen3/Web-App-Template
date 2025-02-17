@@ -191,16 +191,16 @@ The AI assistant will help ensure:
    brew services start postgresql
 
    # Create development database and user
-   createdb hive_dev
+   createdb web-app-template_dev
    psql postgres
    ```
 
    PostgreSQL Configuration Commands:
    ```sql
    -- In PostgreSQL prompt
-   CREATE USER hive_dev_user WITH PASSWORD 'hive_dev_password';
-   CREATE DATABASE hive_dev;
-   GRANT ALL PRIVILEGES ON DATABASE hive_dev TO hive_dev_user;
+   CREATE USER web-app-template_dev_user WITH PASSWORD 'web-app-template_dev_password';
+   CREATE DATABASE web-app-template_dev;
+   GRANT ALL PRIVILEGES ON DATABASE web-app-template_dev TO web-app-template_dev_user;
    ```
 
    #### 2. Environment Variable Configuration
@@ -209,17 +209,17 @@ The AI assistant will help ensure:
    ```
    # Database Configuration
    NODE_ENV=development
-   DATABASE_PUBLIC_URL=postgresql://localhost:5432/hive_dev
-   DATABASE_URL=postgresql://localhost:5432/hive_dev
+   DATABASE_PUBLIC_URL=postgresql://localhost:5432/web-app-template_dev
+   DATABASE_URL=postgresql://localhost:5432/web-app-template_dev
    PGDATA=/var/lib/postgresql/data
-   PGDATABASE=hive_dev
+   PGDATABASE=web-app-template_dev
    PGHOST=localhost
-   PGPASSWORD=hive_dev_password
+   PGPASSWORD=web-app-template_dev_password
    PGPORT=5432
-   PGUSER=hive_dev_user
-   POSTGRES_DB=hive_dev
-   POSTGRES_PASSWORD=hive_dev_password
-   POSTGRES_USER=hive_dev_user
+   PGUSER=web-app-template_dev_user
+   POSTGRES_DB=web-app-template_dev
+   POSTGRES_PASSWORD=web-app-template_dev_password
+   POSTGRES_USER=web-app-template_dev_user
 
    # Security Configuration
    JWT_SECRET=dev_jwt_secret_change_in_production
