@@ -2,69 +2,58 @@
 
 ## Core Features
 
-1. Modern Web Application Template
+1. Project Setup
+   - Template cloning functionality
+   - Project renaming capability
+   - Git repository initialization
+   - Dependency management with pnpm
 
-   - Next.js App Router implementation
-   - TypeScript integration
-   - Tailwind CSS styling
-   - ESLint code quality enforcement
-
-2. Development Experience
-
+2. Development Environment
+   - Local development server
    - Hot reloading
-   - Type safety
-   - Code quality checks
-   - Modern development tools
+   - TypeScript compilation
+   - ESLint code quality checks
+   - Database management with Prisma
 
-3. Component Library
-   - Reusable React components
-   - Type-safe props
-   - Responsive design
-   - Accessibility features
+3. Deployment Pipeline
+   - Railway backend deployment
+   - Vercel frontend deployment
+   - Environment variable management
+   - Database migration handling
 
 ## User Stories
 
-1. As a developer, I want to quickly start a new project with modern best practices
+1. As a developer, I want to:
+   - Quickly create a new web application
+   - Have a standardized project structure
+   - Use modern development tools
+   - Deploy with minimal configuration
 
-   - Clone the template
-   - Install dependencies
-   - Start development server
-   - Begin coding with all tools configured
-
-2. As a developer, I want to ensure code quality
-
-   - Write type-safe code with TypeScript
-   - Follow ESLint rules
-   - Use modern React patterns
-   - Implement proper testing
-
-3. As a developer, I want efficient styling capabilities
-   - Use Tailwind CSS utilities
-   - Create responsive designs
-   - Maintain consistent styling
-   - Customize theme when needed
+2. As a project owner, I want to:
+   - Ensure secure development practices
+   - Maintain consistent code quality
+   - Have automated deployment processes
+   - Scale the application easily
 
 ## Technical Requirements
 
-1. Development Environment
-
-   - Node.js latest LTS
-   - npm/pnpm package manager
-   - Git version control
-   - VS Code (recommended)
-
-2. Performance Requirements
-
-   - Fast development server startup
-   - Quick hot reloading
-   - Efficient build process
-   - Optimized production builds
-
-3. Code Quality Requirements
+1. Frontend:
+   - Next.js 14 implementation
    - TypeScript strict mode
-   - ESLint configuration
-   - Proper component architecture
-   - Testing coverage requirements (TBD)
+   - Tailwind CSS styling
+   - Responsive design
+
+2. Backend:
+   - Express.js API
+   - PostgreSQL database
+   - Prisma ORM integration
+   - Secure authentication ready
+
+3. Development:
+   - AI-assisted development support
+   - Environment-specific configurations
+   - Automated testing capability
+   - Documentation maintenance
 
 ## Future Considerations
 

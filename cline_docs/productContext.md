@@ -1,24 +1,20 @@
 # Product Context
 
-## Project Purpose
-
-This is a modern web application built with Next.js, designed to serve as a template for building scalable and maintainable web applications.
+## Purpose
+This project exists as a modern full-stack web application template that provides a robust starting point for building web applications.
 
 ## Problems Solved
+1. Reduces setup time for new web projects
+2. Provides consistent architecture patterns
+3. Implements best practices for security and deployment
+4. Integrates modern technologies seamlessly
+5. Automates deployment processes
 
-- Provides a standardized, production-ready Next.js setup
-- Implements modern best practices out of the box
-- Includes TypeScript for type safety
-- Integrates Tailwind CSS for styling
-- Includes ESLint for code quality
-- Uses the new App Router for better performance and features
-
-## How It Should Work
-
-The application should provide a solid foundation for building modern web applications with:
-
-- Type-safe development using TypeScript
-- Efficient styling using Tailwind CSS
-- Modern routing using Next.js App Router
-- Code quality maintenance using ESLint
-- Fast development experience with hot reloading
+## How It Works
+The template consists of:
+- Next.js 14 frontend with TypeScript for modern UI development
+- Express.js backend with TypeScript for robust API development
+- PostgreSQL database with Prisma ORM for data management
+- Authentication system ready for implementation
+- Automated deployments via Vercel (frontend) and Railway (backend)
+- Development tooling with AI assistance through Cursor IDE

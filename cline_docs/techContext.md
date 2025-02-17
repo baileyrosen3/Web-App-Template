@@ -1,27 +1,49 @@
 # Technical Context
 
 ## Technologies Used
+1. Frontend:
+   - Next.js 14
+   - TypeScript
+   - Tailwind CSS
+   - React
 
-- Next.js (Latest version)
-- TypeScript
-- Tailwind CSS
-- ESLint
-- React
-- Node.js
+2. Backend:
+   - Express.js
+   - TypeScript
+   - PostgreSQL
+   - Prisma ORM
+
+3. Development Tools:
+   - pnpm (Package Manager)
+   - Cursor IDE
+   - Git & GitHub
+   - Railway & Vercel (Deployment)
 
 ## Development Setup
+1. Required Software:
+   - Node.js
+   - pnpm
+   - PostgreSQL
+   - Git
+   - Cursor IDE
 
-1. Node.js environment
-2. npm package manager
-3. Next.js with TypeScript configuration
-4. Tailwind CSS setup
-5. ESLint for code quality
-6. VS Code recommended (with ESLint and Tailwind CSS IntelliSense extensions)
+2. Environment Setup:
+   - Local PostgreSQL database
+   - Environment variables configuration
+   - Development and production configs
 
 ## Technical Constraints
+1. Database:
+   - PostgreSQL required
+   - Prisma migrations for schema changes
+   - Environment-specific connections
 
-- Node.js version requirements
-- TypeScript strict mode enabled
-- ESLint rules configuration
-- Next.js App Router architecture
-- Tailwind CSS utility-first approach
+2. Deployment:
+   - Railway for backend deployment
+   - Vercel for frontend deployment
+   - Environment variable management
+
+3. Development:
+   - TypeScript strict mode
+   - ESLint rules compliance
+   - Git workflow requirements

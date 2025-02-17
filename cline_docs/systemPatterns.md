@@ -1,20 +1,41 @@
 # System Patterns
 
 ## Architecture
-
-- Next.js App Router architecture
-- Server and Client Components
-- API Routes for backend functionality
-- Static and Dynamic rendering options
-- Middleware support
+- Monorepo structure using pnpm workspaces
+- Frontend and backend as separate applications
+- Clear separation of concerns between layers
 
 ## Key Technical Decisions
+1. Frontend:
+   - Next.js 14 for modern React development
+   - TypeScript for type safety
+   - Tailwind CSS for styling
+   
+2. Backend:
+   - Express.js with TypeScript
+   - PostgreSQL database
+   - Prisma ORM for database operations
+   
+3. Development:
+   - pnpm for package management
+   - Environment-specific configurations
+   - AI-assisted development with Cursor IDE
 
-1. Using TypeScript for type safety
-2. Implementing Tailwind CSS for styling
-3. ESLint for code quality
-4. App Router for modern routing
-5. src directory structure for better organization
+## Architecture Patterns
+1. API Design:
+   - RESTful endpoints
+   - Type-safe API contracts
+   - Proper error handling
+
+2. Database:
+   - Migration-based schema management
+   - Environment-specific connections
+   - Secure credential handling
+
+3. Deployment:
+   - Automated CI/CD
+   - Environment variable management
+   - Separate frontend/backend deployments
 
 ## Directory Structure
 
