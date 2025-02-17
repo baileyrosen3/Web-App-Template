@@ -42,10 +42,6 @@ This template comes with built-in AI assistance capabilities to help you through
 
    [PLEASE FILL IN THE FOLLOWING]
    - Project Name: [Your project name]
-   - Current Step: [Which setup step you're on]
-   - Environment: [Your local development environment details (OS, Node version, etc.)]
-   - Services Created: [List any services you've already set up (GitHub repo, Railway, Vercel, etc.)]
-   - Current Issues: [Any problems you're experiencing]
 
    ## Documentation Progress Tracking
 
