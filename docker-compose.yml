@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Frontend
+      - "8080:8080"  # Backend
+    environment:
+      # Backend environment variables
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://hive_dev_user:hive_dev_password@db:5432/hive_dev
+      - DATABASE_PUBLIC_URL=postgresql://hive_dev_user:hive_dev_password@db:5432/hive_dev
+      - JWT_SECRET=dev_jwt_secret_change_in_production
+      - FRONTEND_URL=http://localhost:3000
+      - CORS_ORIGIN=http://localhost:3000
+      # Frontend environment variables
+      - NEXT_PUBLIC_API_URL=http://localhost:8080
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/apps/frontend/node_modules
+      - /app/apps/backend/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "cd apps/backend && pnpm prisma migrate deploy && cd ../.. && pnpm dev"
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=hive_dev_user
+      - POSTGRES_PASSWORD=hive_dev_password
+      - POSTGRES_DB=hive_dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hive_dev_user -d hive_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data: 

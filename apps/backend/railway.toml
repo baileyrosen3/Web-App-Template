@@ -1,0 +1,25 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm install && npx prisma generate"
+
+[deploy]
+startCommand = "npx prisma migrate deploy && node server.js"
+healthcheckPath = "/"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+healthcheckInterval = 15
+
+[env]
+PORT = "8080"
+NODE_ENV = "production"
+FRONTEND_URL = "${{ FRONTEND_URL }}"
+CORS_ORIGIN = "${{ FRONTEND_URL }}"
+POSTGRES_HOST = "${{ POSTGRES_PRIVATE_HOST }}"
+POSTGRES_PORT = "${{ POSTGRES_PORT }}"
+POSTGRES_DB = "${{ POSTGRES_DATABASE }}"
+POSTGRES_USER = "${{ POSTGRES_USER }}"
+POSTGRES_PASSWORD = "${{ POSTGRES_PASSWORD }}"
+JWT_SECRET = "${{ RAILWAY_RANDOM_SECRET }}"
+DATABASE_URL = "postgresql://${{ POSTGRES_USER }}:${{ POSTGRES_PASSWORD }}@${{ POSTGRES_PRIVATE_HOST }}:${{ POSTGRES_PORT }}/${{ POSTGRES_DATABASE }}"
+LOG_LEVEL = "debug" 
