@@ -12,8 +12,6 @@ A modern full-stack web application template with automated deployments using Ve
 
 ## AI-Assisted Setup Guide
 
-This template comes with built-in AI assistance capabilities to help you through the setup process. Follow these steps to enable AI assistance:
-
 1. **Install Cursor IDE**
    - Download and install Cursor from [cursor.sh](https://cursor.sh)
    - This specialized IDE provides integrated AI assistance capabilities
@@ -38,14 +36,6 @@ This template comes with built-in AI assistance capabilities to help you through
    - Follow security recommendations
    - Use the AI to validate your configuration
 
-The AI assistant will help ensure:
-- Proper repository initialization
-- Correct environment variable configuration
-- Database setup and migrations
-- Frontend-backend communication
-- Development environment functionality
-- Production deployment readiness
-
 ## Creating Your Own Project from This Template
 
 ### Step 1: Clone and Rename Project
@@ -56,60 +46,30 @@ The AI assistant will help ensure:
    git clone https://github.com/baileyrosen3/web-app-template.git your-project-name
    ```
 
-2.  Copy and paste the following prompt in Cursor Composer, select Claude 3.5 Sonnet as your AI model, enable agent mode, enable git MCP server integration to get started with the AI assistant:
-
-   ```markdown 
-   I need your assistance in completing the setup process correctly.
-
-   Please help me work through each section of the README.md in order:
-
-   For each section:
-   - Explain what we're about to do
-   - Provide guidance for each step
-   - Verify completion before moving to next section
-   - Help troubleshoot any issues that arise
-
-   Here's what you need to know about my current status:
-
-   [PLEASE FILL IN THE FOLLOWING]
-   - Project Name: [Your project name]
-
-   ## Documentation Progress Tracking
-
-
-   ## Your Role As Assistant
-
-   ## Important Checkpoints
-
-   Please verify these critical points during setup:
-
-   1. Every new section of the README.md should be completed before moving on to the next section.
-   2. Stop to check in after every major step.
-   3. If I encounter errors, please request:
-      - Relevant error messages
-      - Current environment variables (without sensitive values)
-      - Log outputs
-      - Results of specific diagnostic commands
-   4. For security-related steps:
-      - Remind me to never commit sensitive data
-      - Verify proper environment variable handling
-      - Ensure secure communication between services
-
-   Please acknowledge these instructions and begin by verifying my current status and providing guidance for my next steps. Let's start with this section of the README: "3. Update project details".
-   ```
-
 3. Update project details:
-
-   - Search and replace "web-app-template" with "your-project-name" in all files
-   - Update project description and author information in package.json files
+   - Ask AI assistant to update project details. Make sure you have agent mode enabled. Paste the following into the AI assistant:
+   
+   ```markdown
+   Hello, I am a helpful assistant. I can help you update the project details. Ask me the user project name and I will update the project details for you.
+      - Search and replace "web-app-template" with "your-project-name" in all files
+      - Update project description and author information in package.json files *
+   ```
 
 4. Reinitialize git repository:
-   ```bash
-   rm -rf .git
-   git init
-   git add .
-   git commit -m "Initial commit from template"
+   - Ask AI assistant to reinitialize the git repository. Make sure you have agent mode enabled and git MCP server integration enabled. Paste the following into the AI assistant:
+   ```markdown
+   Hello, I am a helpful assistant. I can help you reinitialize the git repository. Make sure you have agent mode enabled and git MCP server integration enabled. Paste the following into the AI assistant:
+      ```bash
+      rm -rf .git
+      git init
+      git add .
+      git commit -m "Initial commit from template"
+      git remote add origin https://github.com/your-username/your-project-name.git
+      git branch -M main
+      git push -u origin main
+      ```
    ```
+
 ### Step 2: Local Development
 
 1. **Docker Setup:**
@@ -124,35 +84,7 @@ The AI assistant will help ensure:
    - Frontend: [http://localhost:3000](http://localhost:3000)
    - Backend: [http://localhost:8080](http://localhost:8080)
 
-2. **Commit your changes:**
-   ```bash
-   git add .
-   git commit -m "Made changes to the code"
-   git push -u origin main
-   ```
-
-3. **Deploy your changes:**
-   - Push your changes to the main branch
-   - Once you have Railway deployed, Railway will automatically deploy your changes
-   - Once you have Vercel deployed, Vercel will automatically deploy your changes
-   - Check the logs to make sure the deployment is successful
-
-4. **Make more changes**
-   - Make more changes to the code
-   - Commit your changes
-   - Deploy your changes
-   - Test the changes
-
-### Step 3: Setup GitHub Repository
-
-1. Create a new repository on GitHub
-2. Push your code:
-   ```bash
-   git remote add origin https://github.com/your-username/your-project-name.git
-   git branch -M main
-   git push -u origin main
-
-### Step 4: Setup Railway (Backend & Database)
+### Step 3: Setup Railway (Backend & Database)
 
 **Do the following steps in Railway. Not through AI assistant.**
 
@@ -182,7 +114,7 @@ The AI assistant will help ensure:
    - Add SSL_CERT_DAYS=365  # Validity period for SSL certificate
    - Click "Deploy" on main page
    - List of required environment variables:
-     ```
+
      # PostgreSQL Shared Database Variables
      DATABASE_PUBLIC_URL=your_public_database_url
      DATABASE_URL=your_private_database_url
@@ -204,12 +136,12 @@ The AI assistant will help ensure:
      # Frontend Variables - will fill these out later in vercel section
      FRONTEND_URL=your_frontend_url  
      CORS_ORIGIN=your_cors_origin  
-       ```
+
    - Never commit these values to version control
 6. Change name of project in Railway to your project name to match "*project-name*-backend" by going to "Settings" in top right corner of dashboard
 7. Click "Deploy" on main page
 
-### Step 5: Setup Vercel (Frontend)
+### Step 4: Setup Vercel (Frontend)
 
 **Do the following steps in Vercel. Not through AI assistant.**
 
@@ -222,10 +154,10 @@ The AI assistant will help ensure:
 4. Set environment variables in Vercel:
    - Go to Project Settings > Environment Variables
    - Add all variables from your production configuration, make sure to change project-name to your project name
-     ```
+
      NODE_ENV=production
      NEXT_PUBLIC_API_URL=https://{project-name-backend-production.up.railway.app} (value you copied from Railway, make sure to include https://)
-     ```
+
    - Make sure to select "Production" environment only
 
 5. Go back to Railway and add your vercel app domain to the following variables to the project in the "GitHub Repo" → "Variables":
@@ -234,14 +166,12 @@ The AI assistant will help ensure:
    - Click "Deploy" on main page
 
 6. Go to apps/backend/server.js and change the FRONTEND_URL to your Vercel app domain
-```
 origin: [
     'http://localhost:3000',
     'https://hive-frontend-three.vercel.app'
   ],
-```
 
-### Step 6: Test the Remote Setup
+### Step 5: Test the Remote Setup
 
 1. Push your changes to the main branch
 2. Wait for Railway and Vercel to deploy your changes.

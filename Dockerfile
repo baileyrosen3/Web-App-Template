@@ -1,10 +1,9 @@
 FROM node:20-slim
 
-# Install pnpm
-RUN npm install -g pnpm
-
-# Install system dependencies including build tools
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install pnpm and system dependencies
+RUN npm install -g pnpm && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
     postgresql-client \
     python3 \
     make \
@@ -14,25 +13,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+# First, copy just package.json files
+COPY package.json ./
 COPY apps/frontend/package.json ./apps/frontend/
 COPY apps/backend/package.json ./apps/backend/
 
-# Install dependencies
-RUN pnpm install
+# Initialize workspace and install dependencies
+RUN printf 'packages:\n  - "apps/*"\n' > pnpm-workspace.yaml && \
+    pnpm install
 
-# Copy the rest of the application
+# Now copy the rest of the application
 COPY . .
 
-# Generate Prisma client
-RUN cd apps/backend && pnpm prisma generate
-
-# Build applications
-RUN pnpm -r run build
+# Generate Prisma client and build applications
+RUN cd apps/backend && \
+    pnpm prisma generate && \
+    pnpm build && \
+    cd ../frontend && \
+    NEXT_PUBLIC_API_URL=http://localhost:8080 npm run build
 
 # Expose ports
 EXPOSE 3000 8080
 
-# We'll override this with docker-compose
+# Start development servers
 CMD ["pnpm", "dev"] 
