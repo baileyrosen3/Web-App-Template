@@ -11,8 +11,8 @@ services:
     environment:
       # Backend environment variables
       - NODE_ENV=development
-      - DATABASE_URL=postgresql://hive_dev_user:hive_dev_password@db:5432/hive_dev
-      - DATABASE_PUBLIC_URL=postgresql://hive_dev_user:hive_dev_password@db:5432/hive_dev
+      - DATABASE_URL=postgresql://web-app-template_dev_user:web-app-template_dev_password@db:5432/web-app-template_dev
+      - DATABASE_PUBLIC_URL=postgresql://web-app-template_dev_user:web-app-template_dev_password@db:5432/web-app-template_dev
       - JWT_SECRET=dev_jwt_secret_change_in_production
       - FRONTEND_URL=http://localhost:3000
       - CORS_ORIGIN=http://localhost:3000
@@ -33,13 +33,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=hive_dev_user
-      - POSTGRES_PASSWORD=hive_dev_password
-      - POSTGRES_DB=hive_dev
+      - POSTGRES_USER=web-app-template_dev_user
+      - POSTGRES_PASSWORD=web-app-template_dev_password
+      - POSTGRES_DB=web-app-template_dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U hive_dev_user -d hive_dev"]
+      test: ["CMD-SHELL", "pg_isready -U web-app-template_dev_user -d web-app-template_dev"]
       interval: 5s
       timeout: 5s
       retries: 5
