@@ -168,7 +168,7 @@ A modern full-stack web application template with automated deployments using Ve
 6. Go to apps/backend/server.js and change the FRONTEND_URL to your Vercel app domain
 origin: [
     'http://localhost:3000',
-    'https://hive-frontend-three.vercel.app'
+    'https://web-app-template-frontend-three.vercel.app'
   ],
 
 ### Step 5: Test the Remote Setup
